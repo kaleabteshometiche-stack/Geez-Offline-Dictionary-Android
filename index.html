@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="am">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#7c2d12"><link rel="manifest" href="manifest.json">
+<title>የግዕዝ መዝገበ ቃላት</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f3ee;color:#251b15;font-family:system-ui,"Noto Sans Ethiopic",sans-serif}
+header{background:linear-gradient(135deg,#7c2d12,#b45309);color:#fff;padding:26px 16px;text-align:center}
+h1{margin:0 0 6px;font-size:28px}header p{margin:0}
+main{max-width:900px;margin:auto;padding:18px}.search{display:flex;gap:8px}
+input{flex:1;padding:15px;border:1px solid #d7c9bd;border-radius:14px;font-size:17px}
+button{border:0;border-radius:12px;padding:12px 15px;background:#7c2d12;color:#fff}
+.tabs{display:flex;gap:8px;overflow:auto;margin:14px 0}.tabs button{background:#e7ddd4;color:#4b3528;white-space:nowrap}.tabs .active{background:#7c2d12;color:#fff}
+.card{background:#fff;border:1px solid #eadfd6;border-radius:16px;padding:15px;margin:10px 0}
+.geez{font-size:25px;font-weight:700}.am{font-size:18px;margin-top:7px}.en{color:#67574e;margin-top:4px}
+.tag{display:inline-block;background:#f2e8df;padding:4px 8px;border-radius:8px;font-size:12px;margin-bottom:8px}
+#count{margin:8px 0;color:#69584e}.empty{text-align:center;padding:40px;color:#75665c}
+footer{text-align:center;padding:30px 10px;color:#75665c;font-size:13px}
+</style></head>
+<body>
+<header><h1>📖 የግዕዝ መዝገበ ቃላት</h1><p>ግዕዝ • አማርኛ • English • Offline</p></header>
+<main>
+<div class="search"><input id="q" placeholder="ግዕዝ፣ አማርኛ ወይም English ፈልግ…"><button id="clear">✕</button></div>
+<div class="tabs">
+<button class="active" data-type="all">ሁሉም</button><button data-type="word">ቃላት</button>
+<button data-type="verb">ግሶች</button><button data-type="phrase">ሐረጎች/አረፍተ ነገሮች</button>
+</div>
+<div id="count"></div><section id="results"></section>
+</main>
+<footer>የአፑ አዘጋጅ፦ <strong>ዲ/ን ቃለአብ ተሾመ</strong><br>ሙሉ ዳታ በስልኩ ውስጥ ይቀመጣል። Internet አያስፈልግም።</footer>
+<script>
+let DB={words:[],verbs:[],phrases:[]}, mode="all";
+const q=document.querySelector('#q'), out=document.querySelector('#results'), count=document.querySelector('#count');
+fetch('data.json').then(r=>r.json()).then(d=>{DB=d;render()});
+const norm=s=>(s||'').toLowerCase().trim();
+function matches(x,s){return !s||[x.geez,x.amharic,x.english].some(v=>norm(v).includes(s))}
+function render(){
+ const s=norm(q.value), all=[];
+ if(mode==='all'||mode==='word') DB.words.filter(x=>matches(x,s)).forEach(x=>all.push({...x,kind:'word'}));
+ if(mode==='all'||mode==='verb') DB.verbs.filter(x=>matches(x,s)).forEach(x=>all.push({...x,kind:'verb'}));
+ if(mode==='all'||mode==='phrase') DB.phrases.filter(x=>matches(x,s)).forEach(x=>all.push({...x,kind:'phrase'}));
+ count.textContent=all.length+' ውጤት';
+ out.innerHTML=all.slice(0,500).map(x=>`
+ <article class="card"><span class="tag">${x.kind==='verb'?'ግስ':x.kind==='phrase'?'ሐረግ/አረፍተ ነገር':(x.pos||'ቃል')}</span>
+ <div class="geez">${x.geez}</div><div class="am">${x.amharic||'—'}</div><div class="en">${x.english||'—'}</div></article>`).join('')
+ || '<div class="empty">ምንም አልተገኘም።</div>';
+}
+q.oninput=render;document.querySelector('#clear').onclick=()=>{q.value='';render()};
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');mode=b.dataset.type;render()});
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script></body></html>

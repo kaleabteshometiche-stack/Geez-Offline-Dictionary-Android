@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "appName": "የግዕዝ መዝገበ ቃላት",
+    "author": "ዲ/ን ቃለአብ ተሾመ",
+    "mode": "offline",
+    "version": "0.1.0",
+    "note": "Starter records only. Run tools/build_dataset.py to build the full licensed dataset."
+  },
+  "words": [
+    {
+      "geez": "እግዚአብሔር",
+      "amharic": "እግዚአብሔር",
+      "english": "God; the Lord",
+      "pos": "ስም",
+      "source": "starter"
+    },
+    {
+      "geez": "ሰላም",
+      "amharic": "ሰላም፣ ደህንነት",
+      "english": "peace; well-being",
+      "pos": "ስም",
+      "source": "starter"
+    },
+    {
+      "geez": "ሰብእ",
+      "amharic": "ሰው",
+      "english": "person; human being",
+      "pos": "ስም",
+      "source": "starter"
+    },
+    {
+      "geez": "ቤት",
+      "amharic": "ቤት",
+      "english": "house; home",
+      "pos": "ስም",
+      "source": "starter"
+    },
+    {
+      "geez": "ንጉሥ",
+      "amharic": "ንጉሥ",
+      "english": "king",
+      "pos": "ስም",
+      "source": "starter"
+    },
+    {
+      "geez": "ሕይወት",
+      "amharic": "ሕይወት",
+      "english": "life",
+      "pos": "ስም",
+      "source": "starter"
+    },
+    {
+      "geez": "ፍቅር",
+      "amharic": "ፍቅር",
+      "english": "love",
+      "pos": "ስም",
+      "source": "starter"
+    },
+    {
+      "geez": "ብርሃን",
+      "amharic": "ብርሃን",
+      "english": "light",
+      "pos": "ስም",
+      "source": "starter"
+    },
+    {
+      "geez": "ጥበብ",
+      "amharic": "ጥበብ",
+      "english": "wisdom",
+      "pos": "ስም",
+      "source": "starter"
+    },
+    {
+      "geez": "ሰምዐ",
+      "amharic": "ሰማ",
+      "english": "heard",
+      "pos": "ግስ",
+      "source": "starter"
+    },
+    {
+      "geez": "በለ",
+      "amharic": "በላ",
+      "english": "ate",
+      "pos": "ግስ",
+      "source": "starter"
+    },
+    {
+      "geez": "አምጽአ",
+      "amharic": "አመጣ",
+      "english": "brought",
+      "pos": "ግስ",
+      "source": "starter"
+    },
+    {
+      "geez": "ነገረ",
+      "amharic": "ነገረ፣ ተናገረ",
+      "english": "told; spoke",
+      "pos": "ግስ",
+      "source": "starter"
+    },
+    {
+      "geez": "ጸሐፈ",
+      "amharic": "ጻፈ",
+      "english": "wrote",
+      "pos": "ግስ",
+      "source": "starter"
+    },
+    {
+      "geez": "ርእየ",
+      "amharic": "አየ",
+      "english": "saw",
+      "pos": "ግስ",
+      "source": "starter"
+    },
+    {
+      "geez": "ሖረ",
+      "amharic": "ሄደ",
+      "english": "went",
+      "pos": "ግስ",
+      "source": "starter"
+    },
+    {
+      "geez": "ተንሥአ",
+      "amharic": "ተነሳ",
+      "english": "rose; stood up",
+      "pos": "ግስ",
+      "source": "starter"
+    },
+    {
+      "geez": "ቀተለ",
+      "amharic": "ገደለ",
+      "english": "killed",
+      "pos": "ግስ",
+      "source": "starter"
+    },
+    {
+      "geez": "ከደነ",
+      "amharic": "ደበቀ",
+      "english": "hid",
+      "pos": "ግስ",
+      "source": "starter"
+    },
+    {
+      "geez": "ይባርክ",
+      "amharic": "ይባርክ",
+      "english": "may bless / blesses",
+      "pos": "ግስ",
+      "source": "starter"
+    }
+  ],
+  "phrases": [
+    {
+      "geez": "እግዚአብሔር ይባርከነ።",
+      "amharic": "እግዚአብሔር ይባርከን።",
+      "english": "May God bless us.",
+      "source": "starter"
+    },
+    {
+      "geez": "ሰላም ለክሙ።",
+      "amharic": "ሰላም ለእናንተ።",
+      "english": "Peace be with you.",
+      "source": "starter"
+    },
+    {
+      "geez": "ጸሐፈ መጽሐፈ።",
+      "amharic": "መጽሐፍ ጻፈ።",
+      "english": "He wrote a book.",
+      "source": "starter"
+    },
+    {
+      "geez": "ሰምዐ ቃለ።",
+      "amharic": "ቃልን ሰማ።",
+      "english": "He heard a word.",
+      "source": "starter"
+    }
+  ],
+  "verbs": []
+}
