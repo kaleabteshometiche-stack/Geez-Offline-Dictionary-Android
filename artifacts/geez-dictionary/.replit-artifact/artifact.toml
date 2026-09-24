@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/"
+title = "Geez Offline Dictionary"
+description = "An offline Geez, Amharic, and English dictionary for Android with fast local search across words, verbs, and phrases."
+version = "1.0.0"
+id = "artifacts/geez-dictionary"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/" ]
+localPort = 21994
+
+[services.development]
+run = "pnpm --filter @workspace/geez-dictionary run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/geez-dictionary", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/geez-dictionary", "run", "serve" ]
+
+[services.env]
+PORT = "21994"
+BASE_PATH = "/"
