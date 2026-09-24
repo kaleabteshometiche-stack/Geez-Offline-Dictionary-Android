@@ -45,7 +45,7 @@ jobs:
         working-directory: android
         run: chmod +x gradlew && ./gradlew assembleDebug
 
-      - name: Upload APK
+      - name: Upload APk
         uses: actions/upload-artifact@v4
         with:
           name: geez-offline-dictionary-apk
